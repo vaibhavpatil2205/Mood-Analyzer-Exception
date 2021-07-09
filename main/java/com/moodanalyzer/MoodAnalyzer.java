@@ -2,11 +2,25 @@ package com.moodanalyzer;
 
 public class MoodAnalyzer {
 	
-	public String analyzeMood(String message) {
-		
-		if (message.toLowerCase().contains("sad"))
+	private String message;
+
+	public MoodAnalyzer() {
+	}
+
+	public MoodAnalyzer(String message) {
+		this.message = message;
+	}
+
+	public String analyseMood() {
+		try {
+			if (message.toLowerCase().contains("sad"))
 				return "SAD";
-				return "HAPPY";
+			return "HAPPY";
+		} catch (NullPointerException e) {
+			throw new NullPointerException("Invalid message");
+			
+		}
+
 	}
 
 }
